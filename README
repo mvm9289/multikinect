@@ -1,0 +1,1177 @@
+
+*******************************************************************************
+*                                                                             *
+*                                 MULTIKINECT                                 *
+*                                                                             *
+*         Skeleton tracking based on multiple Microsoft Kinect sensors        *
+*                                                                             *
+*                    https://github.com/mvm9289/multikinect                   *
+*                                                                             *
+*******************************************************************************
+
+Copyright (C) 2012-2013  Miguel Angel Vico Moya (www.miguelangelvico.com)
+
+This file is part of MultiKinect.
+
+MultiKinect is free software: you can redistribute it and/or modify it under
+the terms of the GNU Lesser General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along
+with this program. If not, see <http://www.gnu.org/licenses/>.
+
+
+-------------------------------------------------------------------------------
+
+
+0. CONTENTS
+
+1.  Summary
+
+2.  Dependencies
+
+3.  Build MultiKinect with VS2010
+
+4.  How to use MultiKinect
+4.1 General user interface
+4.2 Configuration files
+
+5.  Appendices
+5.1 VRPN simple client
+5.2 Configuration file example
+
+6. Acknowledgements
+
+
+-------------------------------------------------------------------------------
+
+
+1. SUMMARY
+
+
+MultiKinect started as BSCS final project coming from the need, or desire, of
+having an easy and intuitive way to interact with Virtual Reality environments.
+
+MultiKinect is based on the use of multiple Microsoft Kinect sensors at a time
+in order to track users and detect gestures performed by them. We have developed
+an application that allows getting a skeletal representation of each user placed
+in front of the sensors. The program collects, processes and combines the data
+from each of the connected Kinect sensors, and makes it accessible through a
+VRPN server so that external applications may access.
+
+The main reason of using multiple Kinect sensors is increase the accuracy of the
+final skeleton. Working with a single sensor, the resulting accuracy is very low
+because the field of view is too small. Increasing the number of sensors, we
+accomplish to increase the field of view of the system this allows getting more
+accurate final skeletons.
+
+The idea of using a VRPN server to export the skeletal data was inspired by
+FAAST, an application developed by a research team of the USC that manages one
+Kinect sensor at a time and makes the skeletal data accessible through a VRPN
+server. More information about FAAST can be found at:
+
+      http://projects.ict.usc.edu/mxr/faast/
+
+
+-------------------------------------------------------------------------------
+
+
+2. DEPENDENCIES
+
+
+* Microsoft Kinect Driver & SDK (version 1.5 or higher) *
+
+Either you are using the MultiKinect installer or trying to build MultiKinect
+by yourself, you will need to install the Microsoft Kinect Driver & SDK (both
+delivered with the same installer). You can check for the latest version of the
+SDK at:
+
+      http://www.microsoft.com/en-us/kinectforwindows
+
+
+* wxWidgets GUI Library (version 2.8.8 or compatible) *
+
+Only in case you are planning to build MultiKinect by yourself, you will need to
+link with a static unicode build of the wxWidgets library. MultiKinect has been
+developed and tested using the version 2.8.8, but other versions may also work
+correctly. You can get the wxWidgets 2.8.8 sources from:
+
+      http://biolpc22.york.ac.uk/pub/2.8.8/wxWidgets-2.8.8.zip
+
+Or check for a compatible version at:
+
+      http://wxwidgets.org/
+
+
+* Boost C++ Libraries (version 1.49.0 or higher) *
+
+Only in case you are planning to build MultiKinect by yourself, you will need
+some of the Boost headers (no need to be built). You can check for the latest
+version of Boost at:
+
+      http://www.boost.org/
+
+
+* VRPN Library (version 7.30 or higher) *
+
+Only in case you are planning to build MultiKinect by yourself, you will need to
+link with a static build of the VRPN library (server-side). You can check for
+the latest version of VRPN at:
+
+      http://www.cs.unc.edu/Research/vrpn/
+
+
+* Wiiuse (version 0.12 or higher) *
+
+Only in case you are planning to build either VRPN library or MultiKinect with
+WiiMote support, you will need the headers of the Wiiuse library. The dynamic
+link libraries are also needed in order to run MultiKinect. If you are using
+the MultiKinect installer, it will install the appropriate DLLs onto your
+system. You can check for the latest version of Wiiuse at:
+
+      http://sourceforge.net/projects/wiiuse/
+
+
+* OpenGL Extension Wrangler Library (version 1.7.0 or higher) *
+
+Only in case you are planning to build MultiKinect by yourself, you will need
+the headers of the Glew library. The dynamic link libraries are also needed in
+order to run MultiKinect. If you are using the MultiKinect installer, it will
+install the appropriate DLLs onto your system. You can check for the latest
+version of Glew at:
+
+      http://glew.sourceforge.net/
+
+Although an OpenGL version is always delivered along with Windows systems, it
+is usually insufficient to run most of the applications that makes use of the
+OpenGL API. It is recommended to install one of the latest versions of the
+OpenGL driver in order to MultiKinect works properly. Check for the latest
+OpenGL drivers at your graphics card vendor's webpage.
+
+
+* TinyXML-2 *
+
+Only in case you are planning to build MultiKinect by yourself, you will need to
+link with a static build of the TinyXML-2 library. You can check for the latest
+version of TinyXML-2 at:
+
+      http://www.grinninglizard.com/tinyxml2/
+
+
+* Visual Leak Detector (version 2.2.3 or higher) *
+
+Only in case you are planning to build MultiKinect by yourself in Debug mode,
+you will need to link with the VLD DLL at runtime. You can check for the latest
+version of VLD at:
+
+      http://vld.codeplex.com/
+
+
+-------------------------------------------------------------------------------
+
+
+3. BUILD MULTIKINECT WITH VS2010
+
+
+After installing/placing all the dependencies somewhere in your filesystem, you
+will need to set some environment variables used by the Visual Studio Project
+file delivered along with the MultiKinect sources:
+
+
+      Variable               Value
+      ========               =====
+
+      KINECT_INCLUDES        Path where Kinect headers ('NuiApi.h', ...) are
+                             placed at (e.g., 'C:\"Kinect SDK dir"\v1.6\inc').
+
+      KINECT_LIBS            Path where Kinect static library 'Kinect10.lib' is
+                             placed at (e.g.,
+                             'C:\"Kinect SDK dir"\v1.6\x86\lib').
+
+      WXWIDGETS_INCLUDES     Path where wxWidgets headers (folders "wx/") are
+                             placed at (e.g., 'C:\"wxWidgets dir"\include;
+                             C:\"wxWidgets dir"\include\msvc').
+
+      WXWIDGETS_LIBS         Path where wxWidgets static libraries
+                             ('wxbase28u.lib', ...) are placed at (e.g.,
+                             'C:\"wxWidgets dir"\lib\vc_lib').
+
+      BOOST_INCLUDES         Path where Boost headers (folder "boost/") is
+                             placed at (e.g., 'C:\"Boost dir"').
+
+      VRPN_INCLUDES          Path where VRPN headers (folder "vrpn/") is placed
+                             at (e.g., 'C:\"VRPN dir"').
+
+      VRPN_LIBS              Path where VRPN static libraries (folders "Release"
+                             and "Debug") are placed at (e.g., 'C:\"VRPN dir"').
+
+      GLEW_INCLUDES          Path where Glew headers (folder "GL/") are placed
+                             at (e.g., 'C:\"Glew dir"\include').
+
+      GLEW_LIBS              Path where Glew static libraries ('glew32.lib',
+                             ...) are placed at (e.g.,
+                             'C:\"Glew dir"\lib\Release\Win32').
+
+      GLEW_BIN               Path where Glew dynamic library ('glew32.dll') is
+                             placed at (e.g. 'C:\"Glew dir"\bin\Release\Win32').
+
+      TINYXML2_INCLUDES      Path where TinyXML-2 header ('tinyxml2.h') is
+                             placed at (e.g., 'C:\"TinyXML-2 dir"').
+
+      TINYXML2_LIBS          Path where TinyXML-2 static library
+                             ('TinyXML-2.lib') is placed at (e.g.,
+                             'C:\"TinyXML-2 dir"').
+
+      VLD_INCLUDES           Path where VLD header ('vld.h', ...) are placed at
+                             (e.g., 'C:\"VLD dir"\include').
+
+      VLD_LIBS               Path where VLD static library ('vld.lib') is placed
+                             at (e.g., 'C:\"VLD dir"\lib\Win32').
+
+
+Note that many of the variables may depend on which platform MultiKinect is
+going to be built for (x86/Win32, x64).
+
+
+MultiKinect adds support to use Nintendo WiiMote with it. WiiMote support is
+provided through VRPN libraries, which support it as well. Thus, VRPN libraries
+have to be built with WiiMote support in case users want to use WiiMote with
+MultiKinect. Refer to the VRPN official webpage for more details about how to
+build VRPN with WiiMote support:
+
+      http://www.cs.unc.edu/Research/vrpn/
+
+
+There are also two own preprocessor definitions used for conditional compiling:
+
+      Define                 Used for
+      ======                 ========
+
+      _NDEBUG_               Separate Relase/Debug specific code.
+
+      _WIIMOTE_SUPPORT_      Compile MultiKinect with Nintendo WiiMote support.
+
+
+Different build configurations have been added to the VS2010 project delivered
+along with the source files where those preprocessor definitions have already
+been defined.
+
+
+-------------------------------------------------------------------------------
+
+
+4. HOW TO USE MULTIKINECT
+
+
+MultiKinect may be executed in three different modes (default mode: 0):
+
+  * Master server (mode 0) *
+
+  On this execution mode, MultiKinect fetches the data of every connected
+  Kinect sensor (remember to plug each Kinect in different USB controllers) at
+  the same time, and combines the skeletal information automatically in order
+  to find a more accurate skeleton reconstruction of the users.
+  
+  Therefore, MultiKinect is able to access either RGB, depth or skeletal data
+  of multiple Kinect sensors at the same time.
+
+  This mode creates a VRPN server through which the combined skeletal
+  information is sent out (depending on the configuration parameters, the
+  individual skeletal information of each sensor can be also sent).
+
+
+  * Switch server (mode 1) *
+
+  Instead of getting the data of multiple Kinect sensors at the same time, when
+  MultiKinect is running this mode only one Kinect can be fetched at a time.
+  The user can switch between each connected sensor by using a dropdown list
+  provided by the user interface.
+
+  This mode also creates a VRPN server through which the skeletal information
+  of the current selected sensor can be accessed.
+
+
+  * VRPN Client (mode 2) *
+
+  Mostly for testing purposes and checking everything is working well on the
+  server side, MultiKinect may work as a VRPN client that will access to the
+  skeletal and WiiMote data provided by another MultiKinect instance opened as
+  server. The addresses of each remote tracker and WiiMote to be accessed can
+  be defined through the configuration parameters.
+
+
+Since the skeletal data of every Kinect is expressed with respect to its own
+reference frame, MultiKinect allows the user to define a common reference frame
+and the corresponding coordinate transformations that will be applied to the
+skeletons detected by each device. Once the skeletal data from every Kinect is
+expressed with respect to the same reference frame, the combination of the
+skeletons can be performed (see '4.2 Configuration files' for more details).
+
+Kinect is able to track up to six users at a time so MultiKinect will allow
+sending out up to six different skeletons (multiplied by the number of connected
+sensors when running 'Master server' mode and sending individual skeletal data
+of each sensor is enabled). Each skeleton is defined by twenty joints, each one
+composed by:
+
+  1. Joint ID
+  2. Joint 3D position    (3 float point numbers)
+  3. Joint 3D orientation (4 float point numbers)
+
+Both #2 and #3 are always defined respect to the common reference frame which
+can be specified through the configuration parameters.
+
+The skeletal information of every user can be accessed by VRPN clients through
+a skeleton tracker, which will be reporting each of its own joints (ID,
+position and orientation).
+
+The following table shows the correspondences between joint names and IDs as
+reported by each skeleton tracker:
+
+      ID        Joint name
+      --        ----------
+      0         Head
+      1         Left shoulder
+      2         Center shoulder
+      3         Right shoulder
+      4         Left elbow
+      5         Right elbow
+      6         Left wrist
+      7         Right wrist
+      8         Left hand
+      9         Right hand
+      10        Spine
+      11        Left hip
+      12        Center hip
+      13        Right hip
+      14        Left knee
+      15        Right knee
+      16        Left ankle
+      17        Right ankle
+      18        Left foot
+      19        Right foot
+
+
+MultiKinect also provides support to use Nintendo WiiMote controllers (through
+the VRPN library). This allows to external programs to access the WiiMote data
+through VRPN in addition to the skeletal data, which may be useful depending on
+the application (e.g. use the WiiMote buttons to enable/disable the skeleton
+tracking, change the interaction mode, etc.). The WiiMote data is not processed
+by MultiKinect and is sent out as reported by the VRPN libraries. For more
+details about how to interpret the WiiMote data, refer to the VRPN official
+site:
+
+      http://www.cs.unc.edu/Research/vrpn/
+
+Or look at the VRPN source files related to WiiMote:
+
+      https://cvs.cs.unc.edu/git/?p=vrpn.git;a=blob;f=vrpn_WiiMote.h
+      https://cvs.cs.unc.edu/git/?p=vrpn.git;a=blob;f=vrpn_WiiMote.C
+
+
+
+
+4.1 GENERAL USER INTERFACE
+
+
+MultiKinect has been implemented using different processes which communicate to
+each other and perform different tasks, so that the user interface is different
+on each of those processes:
+
+* Master window ('Master server' and 'VRPN client' modes) *
+-----------------------------------------------------------
+
+The main window of MultiKinect is basically composed by a canvas object where
+the virtual room and all the skeletons detected by the Kinect sensors will be
+rendered using OpenGL. On this window, the user is able to check whether the
+virtual room is properly configured as well as the coordinates transformations
+of each Kinect device are being performed correctly (a little frustum is
+rendered where the Kinect device is supposed to be placed in the virtual room).
+Moreover, using the mouse control the user may interact with the rendered
+virtual room in order to change or zoom the 3D view.
+
+A configuration panel may be shown using the menu options of the window. This
+configuration panel allows the user to set some configuration parameters such
+as:
+
+ * Modify the canvas object resolution
+
+ * Show/hide the detected skeletons
+
+ * Show/hide the skeleton joint orientations vectors
+ 
+ * Configure the virtual room origin and size
+ 
+ * Toggle between rendering the combined skeleton or the individual ones
+
+The rest of the configuration parameters may be modified directly editing the
+configuration file, and most of them may require MultiKinect to be rebooted
+(see '4.2 Configuration Files' for more details).
+
+Additionally, three buttons have been added to the configuration panel in order
+to be able to load and save the application settings from/to a file. Saving the
+settings as default will make MultiKinect use that configuration on every
+execution.
+
+The window also provides a status and a menu bar. The former will show both
+application framerate (canvas refreshing rate) and VRPN framerate (the rate
+which with the data is sent over VRPN), and the latter has the following menus:
+
+ -File:  Allows to restart or exit the application.
+
+ -View:  Allows to show/hide the configuration panel, view the application log
+          file or view this README file.
+
+ -Tools: Allows to view or edit the current configuration file.
+
+
+* Slave window ('Master server' and 'Switch server' modes) *
+------------------------------------------------------------
+
+When running MultiKinect as 'Master server' or 'Switch server', one slave
+window per connected Kinect will be shown in the first case, and only one in
+the second.
+
+Unlike the master window case, the slave window is composed by three different
+canvas objects that will show the data obtained by each data stream of the
+corresponding Kinect device. Therefore, one of the canvas objects will show the
+RGB stream, another the depth map and the last one the skeletons detected on
+that Kinect.
+
+Similarly to the master window, a configuration panel may be shown using the
+corresponding menu option. However, this configuration panel allows the user to
+apply the following settings to the current Kinect:
+
+ * Switch between the connected Kinect sensors (only in 'Switch server' mode)
+
+ * Enable/disable the Kinect data streams that are being used (the same
+   checkboxes allow showing/hiding the corresponding canvas object)
+
+ * Enable/disable the 'near' and 'seated' working modes (see the corresponding
+   configuration element at '4.2 Configuration files' for more details)
+
+ * Toggle between sending 'absolute' or 'hierarchical' joint orientations (for
+   more details refer to http://msdn.microsoft.com/en-us/library/hh973073.aspx)
+
+ * Modify the data streams and canvas objects resolution. A higher resolution
+   will improve the accuracy of the obtained data, but will also decrease the
+   system performance.
+
+ * Set up the coordinate transformations that will transform the Kinect
+   reference frame into the common reference frame. The rotation value over the
+   X axis is automatically computed by the Kinect built-in accelerometer.
+
+ * Modify the elevation angle
+
+Since the elevation angle used by the Kinect tilt motor has to be relative to
+the earth gravity vector rather than the Kinect base, a 'Recompute angle limits'
+button have been added to the user interface in order to compute the actual
+minimum and maximum angles the tilt motor is able to reach. This will allow to
+mount the Kinect sensors on tilted surfaces and have yet the possibility of
+using the tilt motor to gain [-27, +27] elevation degrees with respect to its
+base.
+
+The rest of the window components (Load/Save buttons, menu bar and status bar)
+are similar to the ones in the master window.
+
+
+
+
+4.2 CONFIGURATION FILES
+
+
+As mentioned in other sections of this README, the behavior of MultiKinect,
+and many other options, can be modified through configuration parameters. All
+of those parameters are defined in XML configuration files which MultiKinect
+makes use of. The structure and configuration elements and sections are
+described as follows:
+
+
+* Root element *
+----------------
+
+Description:
+
+Each configuration file is formed by one root element which includes the
+rest of the sections and configuration parameters.
+
+XML tag:
+
+    <MultiKinect_Configuration> ... </MultiKinect_Configuration>
+
+
+* System settings *
+-------------------
+
+Description:
+
+There are a couple of system configuration parameters the user can modify,
+the application execution mode and the render loop mode. The latter controls
+the way MultiKinect refreshes every GUI canvas object to for render purposes,
+and using one mode or another may affect the application performance (in most
+cases is unnoticeable though).
+
+
+Execution mode element:
+
+  XML tag:
+
+      <application_mode> INTEGER </application_mode>
+
+  Allowed values:
+
+      0 --> Master server
+      1 --> Switch server
+      2 --> VRPN client
+
+
+Rendering loop mode element:
+
+  XML tag:
+
+      <render_loop_mode> INTEGER </render_loop_mode>
+
+  Allowed values:
+
+      0 --> Use a render timer
+      1 --> Use idle events
+      2 --> Use a render thread
+
+
+* Canvas settings *
+-------------------
+
+Description:
+
+As mentioned previously, the obtained information from each Kinect (RGB
+channel, depth map and skeletal data) is presented to the user through canvas
+elements on the user interface. Each of those canvas has an associated XML
+configuration section that is uniquely identified by its corresponding Kinect
+identifier.
+
+Additionally, there are two special canvas sections, identified by "client"
+and "master", which determine the canvas configuration of the master process
+(master server mode) and the client process (VRPN client mode).
+
+Among other things, the configuration parameters allow to hide/show a certain
+data stream or change its resolution as well.
+
+
+Canvas section:
+
+  XML tag:
+
+      <canvas id="..." alias="..."> ... </canvas>
+
+  Attributes:
+
+      id    --> Must be "client", "master" or a Kinect ID.
+      alias --> Since it seems to be tough remember Kinect IDs to match a
+                canvas configuration with its actual Kinect sensor, the user
+                can set an alias in order to make that task easier. This
+                attribute is not used by any procedure of MultiKinect.
+
+
+Canvas size element:
+
+  XML tag:
+
+      <size dimension="..."> INTEGER </size>
+
+  Attributes:
+
+      dimension --> Must be "width" or "height"
+
+  Allowed values:
+
+      Expressed as "width"x"height", 80x60, 320x240 and 640x480 resolutions
+      are accepted by a canvas attached to a Kinect sensor, and 320x240,
+      640x480, 800x600 and 1024x768 by a "master" or "client" canvas.
+
+
+Show data stream element:
+
+  XML tag:
+
+      <show_data_stream type="..."> BOOLEAN </show_data_stream>
+
+  Attributes:
+
+      type --> Must by "rgb_image", "depth_map" or "skeleton_tracking"
+
+  Allowed values:
+
+      0 or 1 --> Hide/Show the data stream canvas object
+
+
+Show skeletons element (only "master" or "client"):
+
+  XML tag:
+
+      <show_skeletons> BOOLEAN </show_skeletons>
+
+  Allowed values:
+
+      0 or 1 --> Hide/Show skeletons being tracked
+
+
+Show orientations element (only "master" or "client"):
+
+  XML tag:
+
+      <show_orientations> BOOLEAN </show_orientations>
+
+  Allowed values:
+
+      0 or 1 --> Hide/Show joint orientation vectors
+
+
+Combine skeletons element (only "master"):
+
+  XML tag:
+
+      <combine_skeletons> BOOLEAN </combine_skeletons>
+
+  Allowed values:
+
+      0 --> Show the individual skeletons being tracked by each Kinect
+      1 --> Show the combined skeleton result of merging the Kinect skeletons
+
+
+* Kinect settings *
+-------------------
+
+Description:
+
+Likewise to the canvas settings, each Kinect device has an associated XML
+configuration section which provides to the user a mechanism to modify some of
+the features of the Kinect sensor. Each Kinect section is also identified by
+the corresponding Kinect identifier.
+
+The different configuration elements described below will allow the user to
+enable/disable the different data streams as well as modify their resolution
+(which directly affects to quality/accuracy and performance), enable/disable
+different Kinect functions such as 'seated' or 'near' modes, or set up a
+coordinates transformation (translation and rotation) which will convert the
+Kinect reference frame into the common reference frame (defined by the user).
+
+Additionally, the maximum and minimum elevation angles that Kinect tilt motor
+is able to reach are stored into the configuration files in order to not
+recompute them at every execution. This also allows a bit of tweaking when
+needed (e.g. some strange sensor positions where the elevation angle limits
+are not properly computed through the GUI).
+
+
+Kinect device section:
+
+  XML tag:
+
+      <kinect_device id="..." alias="..."> ... </kinect_device>
+
+  Attributes:
+
+      Same as 'Canvas' section.
+
+
+Enable data stream element:
+
+  XML tag:
+
+      <enable_data_stream type="..."> BOOLEAN </enable_data_stream>
+
+  Attributes:
+
+      Same as 'Show data stream' element.
+
+  Allowed values:
+
+      0 or 1 --> Disable/Enable the data stream of being fetched from the
+                 corresponding Kinect
+
+
+Enable mode element:
+
+  XML tag:
+
+      <enable_mode type="..."> BOOLEAN </enable_mode>
+
+  Attributes:
+
+      type --> Must be "near" or "seated", corresponding to the Kinect
+               device 'near' and 'seated' working modes. More information
+               at http://www.microsoft.com/en-us/kinectforwindows
+
+  Allowed values:
+
+      0 or 1 --> Disable/Enable the corresponding working mode
+
+
+Coordinate transformation elements:
+
+  XML tags:
+
+      <translation axis="..."> FLOAT </translation>
+      <rotation    axis="..."> FLOAT </rotation>
+
+  Attributes:
+
+      axis --> Must be "X", "Y" or "Z", corresponding to the axes of the 3D
+               Kinect reference frame
+
+  Allowed values:
+
+      Translation --> Translation distance expressed in meters units
+      Rotation    --> Rotation angle expressed in degrees units
+
+
+Elevation angle element:
+
+  XML tag:
+
+      <elevation_angle limit="..."> FLOAT </elevation_angle>
+
+  Attributes:
+
+      limit --> Must be "min" or "max", corresponding to the minimum and
+                maximum angles the Kinect tilt motor may reach. The angle
+                value is with respect to the gravity up vector so it depends
+                either on the actual Kinect inclination and the current tilt
+                angle.
+
+  Allowed values:
+
+      Elevation angle expressed in degrees units
+
+
+* Virtual room settings *
+-------------------------
+
+Description:
+
+As mentioned previously, in order to combine the different skeletons obtained
+by each Kinect sensor, all the skeletal data has to be expressed with respect
+to the same reference frame. In order to allow the user to have a graphical
+representation of such common reference frame and where each of the Kinect
+sensors are placed with respect to it, the virtual room settings provides
+some configuration elements to define the origin and size of a room/workplace,
+which provides some sort of mechanism to approximately check whether the
+transformations of each device are properly defined or not.
+
+
+Virtual room section:
+
+  XML tag:
+
+      <virtual_room> ... </virtual_room>
+
+
+Room size element:
+
+  XML tag:
+
+      <size dimension="..."> FLOAT </size>
+
+  Attributes:
+
+      dimension --> Must be "width", "height" or "depth"
+
+  Allowed values:
+
+      Positive floating point number defining the corresponding size in
+      meters units
+
+
+Room origin element:
+
+  XML tag:
+
+      <origin axis="..."> FLOAT </origin>
+
+  Attributes:
+
+      axis --> Must be "X", "Y" or "Z", corresponding to the axes of the 3D
+               common reference frame
+
+  Allowed values:
+
+      Floating point number defining the corresponding component of the room
+      origin position in meters units
+
+
+* Local VRPN skeleton settings *
+--------------------------------
+
+Description:
+
+In order to export the skeletal data through VRPN, the user has to define the
+corresponding local skeleton settings for each tracked user it wants to export.
+These settings and its containing configuration elements will allow configuring,
+among other things, the address each VRPN tracker will be accessible from.
+
+
+Local tracker section:
+
+  XML tag:
+
+      <vrpn_local_skeleton id="..."> ... </vrpn_local_skeleton>
+
+  Attributes:
+
+      id --> Integer value from 0 to 5, corresponding to the user ID detected
+             by Kinect
+
+
+Local tracker address element:
+
+  XML tag:
+
+      <address> STRING </address>
+
+  Allowed values:
+
+      String which defines the address which with the corresponding skeletal
+      data is going to be exported by the VRPN server. This address must not
+      include the IP or machine name where the VRPN server is hosted (i.e.
+      must not include the @{IP} suffix)
+
+
+Send orientations element:
+
+  XML tag:
+
+      <send_orientations> BOOLEAN </send_orientations>
+
+  Allowed values:
+
+      0 or 1 --> Disable/Enable sending joint orientations through VRPN
+
+
+Send original skeletons element:
+
+  XML tag:
+
+      <send_original_skeletons> BOOLEAN </send_original_skeletons>
+
+  Allowed values:
+
+      0 or 1 --> Disable/Enable sending the individual tracked skeletons by
+                 each Kinect, in addition to the combined one, through VRPN
+
+
+* Remote VRPN skeleton settings *
+---------------------------------
+
+Description:
+
+Similarly to the local trackers settings, when running MultiKinect as a VRPN
+client, the addresses of the trackers the user wants to access to, have to be
+defined through the corresponding remote tracker settings in order to receive
+the skeletal data.
+
+
+Remote tracker section:
+
+  XML tag:
+
+      <vrpn_remote_tracker id="..."> ... </vrpn_remote_tracker>
+
+  Attributes:
+
+      Same as 'Local tracker' section.
+
+
+Remote tracker address element:
+
+  XML tag:
+
+      <address> STRING </address>
+
+  Allowed values:
+
+      Same as 'Local tracker address' element but including the IP or machine
+      name where the VRPN server is hosted (i.e. must include the @{IP} suffix)
+
+
+* Local VRPN WiiMote settings *
+-------------------------------
+
+Description:
+
+Since MultiKinect also provides support for using Nintendo WiiMote controllers,
+and their data is also sent out through VRPN, in the same way as the local VRPN
+trackers, the user will be able to define which WiiMotes wants to export, and
+their corresponding addresses, using the local WiiMote settings.
+
+
+Local WiiMote section:
+
+  XML tag:
+
+      <vrpn_local_wiimote id="..."> ... </vrpn_local_wiimote>
+
+  Attributes:
+
+      id --> Integer value from 0 to 3, corresponding to the WiiMote ID
+             connected to MultiKinect
+
+
+Remote WiiMote address element:
+
+  XML tag:
+
+      <address> STRING </address>
+
+  Allowed values:
+
+      Same as 'Local tracker address' element
+
+
+* Remote VRPN WiiMote settings *
+--------------------------------
+
+Description:
+
+MultiKinect as a VRPN client may also receive the data sent by the connected
+WiiMote controllers. Likewise to the remote VRPN trackers, the user will be
+able to provide the corresponding WiiMote controllers it wants to access to,
+and their corresponding addresses, using the remote WiiMote settings.
+
+
+Remote WiiMote section:
+
+  XML tag:
+
+      <vrpn_remote_wiimote id="..."> ... </vrpn_remote_wiimote>
+
+  Attributes:
+
+      Same as 'Local WiiMote' section.
+
+
+Remote WiiMote address element:
+
+  XML tag:
+
+      <address> STRING </address>
+
+  Allowed values:
+
+      Same as 'Remote tracker address' element
+
+
+Additionally, a full configuration file example has been included in the
+'5.2 Configuration file example' section of the appendices.
+
+
+-------------------------------------------------------------------------------
+
+
+5. APPENDICES
+
+
+5.1 VRPN SIMPLE CLIENT
+
+
+Along with MultiKinect, a very simple sample of a VRPN client can be found
+under the 'samples/VRPNSimpleClient' folder. It shows how the VRPN data sent
+by MultiKinect can be accessed and processed by any program just using the
+VRPN libraries.
+
+There are basically five points to take care about:
+
+  1. Include VRPN needed headers:
+
+     #include <vrpn/vrpn_Tracker.h>
+
+
+  2. Define a tracker callback handler:
+
+     void VRPN_CALLBACK handler_kinect_tracker(void* userData,
+                                               const vrpn_TRACKERCB t)
+     {
+         cout << "SkeletonTracker:"   << endl;
+         cout << "\tID: " << t.sensor << endl;
+
+         cout << "\tPosition: "
+              << t.pos[0] << " "
+              << t.pos[1] << " "
+              << t.pos[2] << endl;
+
+         cout << "\tOrientation: "
+              << t.quat[0] << " "
+              << t.quat[1] << " "
+              << t.quat[2] << " "
+              << t.quat[3] << endl << endl;
+     }
+
+
+  3. Create the skeleton tracker:
+
+     const char          *trackerAddr = "SkeletonTracker@localhost"
+     vrpn_Tracker_Remote *vrpnTracker = new vrpn_Tracker_Remote(trackerAddr);
+
+
+  4. Register the callback handler:
+
+     vrpnTracker->register_change_handler(0, handler_kinect_tracker);
+
+
+  5. Check for tracker updates:
+
+     while (true)
+     {
+         vrpnTracker->mainloop();
+     }
+
+
+Additionally, VRPNSimpleClient also shows how to access to the WiiMote data in
+case MultiKinect has been built to support it through the corresponding
+preprocessor definition.
+
+
+
+
+5.2 CONFIGURATION FILE EXAMPLE
+
+
+<MultiKinect_Configuration>
+
+    <!-- APPLICATION BEHAVIOR SETTINGS -->
+    <application_mode>0</application_mode>
+    <render_loop_mode>1</render_loop_mode>
+    <!-- -->
+
+    <!-- CANVAS SETTINGS OF EACH PROCESS -->
+    <canvas id="USB\VID_045E&amp;PID_02AE\A00365914972103A"
+            alias="Kinect1_canvas">
+        <size dimension="width">320</size>
+        <size dimension="height">240</size>
+        <show_data_stream type="rgb_image">0</show_data_stream>
+        <show_data_stream type="depth_map">1</show_data_stream>
+        <show_data_stream type="skeleton_tracking">1</show_data_stream>
+    </canvas>
+
+    <canvas id="USB\VID_045E&amp;PID_02AE\A00367A06411102A"
+            alias="Kinect2_canvas">
+        <size dimension="width">320</size>
+        <size dimension="height">240</size>
+        <show_data_stream type="rgb_image">0</show_data_stream>
+        <show_data_stream type="depth_map">1</show_data_stream>
+        <show_data_stream type="skeleton_tracking">1</show_data_stream>
+    </canvas>
+
+    <canvas id="client" alias="Client_process_canvas">
+        <size dimension="width">640</size>
+        <size dimension="height">480</size>
+        <show_skeletons>1</show_skeletons>
+        <show_orientations>0</show_orientations>
+    </canvas>
+
+    <canvas id="master" alias="Master_process_canvas">
+        <size dimension="width">640</size>
+        <size dimension="height">480</size>
+        <show_skeletons>1</show_skeletons>
+        <show_orientations>1</show_orientations>
+        <combine_skeletons>1</combine_skeletons>
+    </canvas>
+    <!-- -->
+
+    <!-- KINECT DEVICES SETTINGS -->
+    <kinect_device id="USB\VID_045E&amp;PID_02AE\A00365914972103A" alias="Kinect1_device">
+        <enable_data_stream type="rgb_image">0</enable_data_stream>
+        <enable_data_stream type="depth_map">1</enable_data_stream>
+        <enable_data_stream type="skeleton_tracking">1</enable_data_stream>
+        <enable_mode type="near">0</enable_mode>
+        <enable_mode type="seated">1</enable_mode>
+        <translation axis="X">0</translation>
+        <translation axis="Y">1.1</translation>
+        <translation axis="Z">-1.5</translation>
+        <rotation axis="X">0</rotation>
+        <rotation axis="Y">0</rotation>
+        <rotation axis="Z">0</rotation>
+        <elevation_angle limit="min">-27</elevation_angle>
+        <elevation_angle limit="max">27</elevation_angle>
+    </kinect_device>
+
+    <kinect_device id="USB\VID_045E&amp;PID_02AE\A00367A06411102A" alias="Kinect2_device">
+        <enable_data_stream type="rgb_image">0</enable_data_stream>
+        <enable_data_stream type="depth_map">1</enable_data_stream>
+        <enable_data_stream type="skeleton_tracking">1</enable_data_stream>
+        <enable_mode type="near">0</enable_mode>
+        <enable_mode type="seated">1</enable_mode>
+        <translation axis="X">0</translation>
+        <translation axis="Y">1</translation>
+        <translation axis="Z">0</translation>
+        <rotation axis="X">0</rotation>
+        <rotation axis="Y">0</rotation>
+        <rotation axis="Z">0</rotation>
+        <elevation_angle limit="min">-27</elevation_angle>
+        <elevation_angle limit="max">27</elevation_angle>
+    </kinect_device>
+    <!-- -->
+
+    <!-- VIRTUAL ROOM SETTINGS -->
+    <virtual_room>
+        <size dimension="width">2.8</size>
+        <size dimension="height">2.55</size>
+        <size dimension="depth">3</size>
+        <origin axis="X">-1.4</origin>
+        <origin axis="Y">0</origin>
+        <origin axis="Z">-1.5</origin>
+    </virtual_room>
+    <!-- -->
+
+    <!-- LOCAL VRPN KINECT SKELETONS SETTINGS -->
+    <vrpn_local_skeleton id="0">
+        <address>SkeletonTracker0</address>
+        <send_orientations>1</send_orientations>
+        <send_original_skeletons>1</send_original_skeletons>
+    </vrpn_local_skeleton>
+    <!-- -->
+
+    <!-- REMOTE VRPN KINECT SKELETONS SETTINGS -->
+    <vrpn_remote_skeleton id="0">
+        <address>SkeletonTracker0@localhost</address>
+    </vrpn_remote_skeleton>
+    <!-- -->
+
+    <!-- LOCAL VRPN WIIMOTES SETTINGS -->
+    <vrpn_local_wiimote id="0">
+        <address>WiiMote0</address>
+    </vrpn_local_wiimote>
+    <!-- -->
+
+    <!-- REMOTE VRPN WIIMOTES SETTINGS -->
+    <vrpn_remote_wiimote id="0">
+        <address>WiiMote0@localhost</address>
+    </vrpn_remote_wiimote>
+    <!-- -->
+
+</MultiKinect_Configuration>
+
+
+-------------------------------------------------------------------------------
+
+
+6. ACKNOWLEDGEMENTS
+
+
+  * Pere Brunet and Carlos Andujar from Technical University of Barcelona for
+    being part of this project in its infancy as supervisors of the BSCS final
+    project and for providing advice and ideas
+
+  * The CISMM project at the University of North Carolina at Chapel Hill,
+    supported by NIH/NCRR and NIH/NIBIB award #2P41EB002025
+
+  * The FAAST project at the University of Southern California by MxR
+
+  * Any other third party open source library or application that have been
+    used to develop or have inspired MultiKinect
+
+
+-------------------------------------------------------------------------------
+

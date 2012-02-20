@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="include\GUI">
+      <UniqueIdentifier>{57ec397e-7a2e-4715-9410-42662cd67ac4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Tools">
+      <UniqueIdentifier>{8fc49350-98ca-47d0-a812-5fb566a797cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\GUI">
+      <UniqueIdentifier>{89b9c544-b90c-47f1-b93d-0f454c1ab581}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Tools">
+      <UniqueIdentifier>{82335312-6043-4001-82ad-467e3ca460dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Globals">
+      <UniqueIdentifier>{dff24ee1-3977-4e1b-85ef-a7b4862bda43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Kinect">
+      <UniqueIdentifier>{f86602a1-3232-4882-94ac-36745ef46f96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Kinect">
+      <UniqueIdentifier>{ec48da51-d554-45e9-8118-fc5c0887b219}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Render">
+      <UniqueIdentifier>{3dbb06ff-e746-450d-930d-6a4e098f4808}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Render">
+      <UniqueIdentifier>{cab45370-0708-44cf-b3d8-474b033bab1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Geom">
+      <UniqueIdentifier>{1731e71c-5798-45ff-82b9-b65bc7cdaad2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Geom">
+      <UniqueIdentifier>{d50ed1e2-1b96-41ec-abeb-89790fabd6fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Globals">
+      <UniqueIdentifier>{4bd84070-e13d-425a-b046-fcdf6fb8679b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Interprocess">
+      <UniqueIdentifier>{e6e52805-6bf5-4e3c-a7d9-ab1854747997}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Interprocess">
+      <UniqueIdentifier>{85888a59-4786-4bfa-a66b-dcdf40088193}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\VRPN">
+      <UniqueIdentifier>{93e75fc8-8595-4ddb-89bf-4ed60cbf09ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\VRPN">
+      <UniqueIdentifier>{d02ec38b-799c-4382-81b4-415e30e1d581}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resources">
+      <UniqueIdentifier>{0efb5ff7-5433-426c-8ef3-fa51cba153e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Files">
+      <UniqueIdentifier>{8a797dac-241e-432f-b3de-21fc5411e29a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Files">
+      <UniqueIdentifier>{6b2a9dd2-7982-44d8-9d4b-57f33dafe2fb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\GUI\App.h">
+      <Filter>include\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Tools\Log.h">
+      <Filter>include\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Tools\Timer.h">
+      <Filter>include\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Kinect\KinectManager.h">
+      <Filter>include\Kinect</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Kinect\KinectDevice.h">
+      <Filter>include\Kinect</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Render\RenderTimer.h">
+      <Filter>include\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Render\RenderSystem.h">
+      <Filter>include\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Geom\Color.h">
+      <Filter>include\Geom</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Geom\Point.h">
+      <Filter>include\Geom</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Kinect\KinectSkeleton.h">
+      <Filter>include\Kinect</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Globals\Config.h">
+      <Filter>include\Globals</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Render\RenderThread.h">
+      <Filter>include\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Interprocess\SharedMemoryManager.h">
+      <Filter>include\Interprocess</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GUI\MainFrame.h">
+      <Filter>include\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GUI\MainFrameLogic.h">
+      <Filter>include\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GUI\MasterFrame.h">
+      <Filter>include\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GUI\MasterFrameLogic.h">
+      <Filter>include\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GUI\RenderFrame.h">
+      <Filter>include\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\VRPN\VRPNSkeletonTracker.h">
+      <Filter>include\VRPN</Filter>
+    </ClInclude>
+    <ClInclude Include="include\VRPN\VRPNClient.h">
+      <Filter>include\VRPN</Filter>
+    </ClInclude>
+    <ClInclude Include="include\VRPN\VRPNServer.h">
+      <Filter>include\VRPN</Filter>
+    </ClInclude>
+    <ClInclude Include="include\VRPN\VRPNSkeletonTrackerRemote.h">
+      <Filter>include\VRPN</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Geom\Vector.h">
+      <Filter>include\Geom</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Geom\Quaternion.h">
+      <Filter>include\Geom</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Render\RenderSystemRemote.h">
+      <Filter>include\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Render\RenderSystemInterprocess.h">
+      <Filter>include\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Render\RenderSystemLocal.h">
+      <Filter>include\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GUI\KinectCanvas.h">
+      <Filter>include\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GUI\GLCanvas.h">
+      <Filter>include\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Globals\Definitions.h">
+      <Filter>include\Globals</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Globals\Vars.h">
+      <Filter>include\Globals</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Globals\Objects.h">
+      <Filter>include\Globals</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Globals\Types.h">
+      <Filter>include\Globals</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Globals\Include.h">
+      <Filter>include\Globals</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Geom\Matrix3x3.h">
+      <Filter>include\Geom</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Geom\Matrix4x4.h">
+      <Filter>include\Geom</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Files\Filesystem.h">
+      <Filter>include\Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GUI\TextFileDialog.h">
+      <Filter>include\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\VRPN\VRPNWiimote.h">
+      <Filter>include\VRPN</Filter>
+    </ClInclude>
+    <ClInclude Include="include\VRPN\VRPNWiimoteRemote.h">
+      <Filter>include\VRPN</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\GUI\App.cpp">
+      <Filter>source\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Tools\Log.cpp">
+      <Filter>source\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Tools\Timer.cpp">
+      <Filter>source\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Kinect\KinectManager.cpp">
+      <Filter>source\Kinect</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Kinect\KinectDevice.cpp">
+      <Filter>source\Kinect</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Render\RenderTimer.cpp">
+      <Filter>source\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Render\RenderSystem.cpp">
+      <Filter>source\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Geom\Color.cpp">
+      <Filter>source\Geom</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Geom\Point.cpp">
+      <Filter>source\Geom</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Kinect\KinectSkeleton.cpp">
+      <Filter>source\Kinect</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Globals\Config.cpp">
+      <Filter>source\Globals</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Render\RenderThread.cpp">
+      <Filter>source\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Interprocess\SharedMemoryManager.cpp">
+      <Filter>source\Interprocess</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GUI\MainFrame.cpp">
+      <Filter>source\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GUI\MainFrameLogic.cpp">
+      <Filter>source\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GUI\MasterFrame.cpp">
+      <Filter>source\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GUI\MasterFrameLogic.cpp">
+      <Filter>source\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GUI\RenderFrame.cpp">
+      <Filter>source\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\VRPN\VRPNSkeletonTracker.cpp">
+      <Filter>source\VRPN</Filter>
+    </ClCompile>
+    <ClCompile Include="source\VRPN\VRPNClient.cpp">
+      <Filter>source\VRPN</Filter>
+    </ClCompile>
+    <ClCompile Include="source\VRPN\VRPNServer.cpp">
+      <Filter>source\VRPN</Filter>
+    </ClCompile>
+    <ClCompile Include="source\VRPN\VRPNSkeletonTrackerRemote.cpp">
+      <Filter>source\VRPN</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Geom\Vector.cpp">
+      <Filter>source\Geom</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Geom\Quaternion.cpp">
+      <Filter>source\Geom</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Render\RenderSystemRemote.cpp">
+      <Filter>source\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Render\RenderSystemInterprocess.cpp">
+      <Filter>source\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Render\RenderSystemLocal.cpp">
+      <Filter>source\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GUI\KinectCanvas.cpp">
+      <Filter>source\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GUI\GLCanvas.cpp">
+      <Filter>source\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Globals\Vars.cpp">
+      <Filter>source\Globals</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Geom\Matrix3x3.cpp">
+      <Filter>source\Geom</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Geom\Matrix4x4.cpp">
+      <Filter>source\Geom</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Globals\Types.cpp">
+      <Filter>source\Globals</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Files\Filesystem.cpp">
+      <Filter>source\Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GUI\TextFileDialog.cpp">
+      <Filter>source\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\VRPN\VRPNWiimote.cpp">
+      <Filter>source\VRPN</Filter>
+    </ClCompile>
+    <ClCompile Include="source\VRPN\VRPNWiimoteRemote.cpp">
+      <Filter>source\VRPN</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resources\resources.rc">
+      <Filter>resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

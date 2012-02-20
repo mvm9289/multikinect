@@ -1,0 +1,764 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug_WiiMote_support|Win32">
+      <Configuration>Debug_WiiMote_support</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_WiiMote_support|x64">
+      <Configuration>Debug_WiiMote_support</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_WiiMote_support|Win32">
+      <Configuration>Release_WiiMote_support</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_WiiMote_support|x64">
+      <Configuration>Release_WiiMote_support</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8FF8B797-DF1D-43B5-B78C-0C94242016A8}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>MultiKinect</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_WiiMote_support|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_WiiMote_support|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_WiiMote_support|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_WiiMote_support|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)IntermediateBuild\$(Platform)\$(Configuration)\</IntDir>
+    <CustomBuildBeforeTargets />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_WiiMote_support|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)IntermediateBuild\$(Platform)\$(Configuration)\</IntDir>
+    <CustomBuildBeforeTargets />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)IntermediateBuild\$(Platform)\$(Configuration)\</IntDir>
+    <CustomBuildBeforeTargets />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_WiiMote_support|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)IntermediateBuild\$(Platform)\$(Configuration)\</IntDir>
+    <CustomBuildBeforeTargets />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)IntermediateBuild\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)IntermediateBuild\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)IntermediateBuild\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)IntermediateBuild\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;__WXMSW__;_CRT_SECURE_NO_WARNINGS;WIN32;__WINDOWS__;BOOST_DATE_TIME_NO_LIB;NOMINMAX;_DEBUG;__WXDEBUG__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(WXWIDGETS_INCLUDES);$(KINECT_INCLUDES);$(BOOST_INCLUDES);$(VRPN_INCLUDES);$(GLEW_INCLUDES);$(TINYXML2_INCLUDES);$(VLD_INCLUDES);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(WXWIDGETS_LIBS);$(KINECT_LIBS);$(GLEW_LIBS);$(TINYXML2_LIBS)\Debug;$(VRPN_LIBS)\Debug;$(VLD_LIBS);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>wxbase28ud.lib;wxbase28ud_net.lib;wxbase28ud_xml.lib;wxexpatd.lib;wxjpegd.lib;wxmsw28ud_adv.lib;wxmsw28ud_aui.lib;wxmsw28ud_core.lib;wxmsw28ud_gl.lib;wxmsw28ud_html.lib;wxmsw28ud_media.lib;wxmsw28ud_qa.lib;wxmsw28ud_richtext.lib;wxmsw28ud_xrc.lib;wxpngd.lib;wxregexud.lib;wxtiffd.lib;wxzlibd.lib;opengl32.lib;winmm.lib;comctl32.lib;rpcrt4.lib;shell32.lib;gdi32.lib;kernel32.lib;user32.lib;comdlg32.lib;ole32.lib;oleaut32.lib;advapi32.lib;Kinect10.lib;glew32.lib;vrpn.lib;TinyXML-2.lib;vld.lib</AdditionalDependencies>
+    </Link>
+    <CustomBuildStep>
+      <Command>copy "$(GLEW_BIN)\glew32.dll" "$(OutDir)\"
+copy "$(WIIUSE_BIN)\wiiuse.dll" "$(OutDir)\"
+copy "$(ProjectDir)README" "$(OutDir)\"</Command>
+      <Outputs>glew32.dll;wiiuse.dll;README</Outputs>
+      <Inputs>
+      </Inputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_WiiMote_support|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;__WXMSW__;_CRT_SECURE_NO_WARNINGS;WIN32;__WINDOWS__;_WIIMOTE_SUPPORT_;BOOST_DATE_TIME_NO_LIB;NOMINMAX;_DEBUG;__WXDEBUG__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(WXWIDGETS_INCLUDES);$(KINECT_INCLUDES);$(BOOST_INCLUDES);$(VRPN_INCLUDES);$(GLEW_INCLUDES);$(TINYXML2_INCLUDES);$(VLD_INCLUDES);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(WXWIDGETS_LIBS);$(KINECT_LIBS);$(GLEW_LIBS);$(TINYXML2_LIBS)\Debug;$(VRPN_LIBS)\Debug;$(VLD_LIBS);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>wxbase28ud.lib;wxbase28ud_net.lib;wxbase28ud_xml.lib;wxexpatd.lib;wxjpegd.lib;wxmsw28ud_adv.lib;wxmsw28ud_aui.lib;wxmsw28ud_core.lib;wxmsw28ud_gl.lib;wxmsw28ud_html.lib;wxmsw28ud_media.lib;wxmsw28ud_qa.lib;wxmsw28ud_richtext.lib;wxmsw28ud_xrc.lib;wxpngd.lib;wxregexud.lib;wxtiffd.lib;wxzlibd.lib;opengl32.lib;winmm.lib;comctl32.lib;rpcrt4.lib;shell32.lib;gdi32.lib;kernel32.lib;user32.lib;comdlg32.lib;ole32.lib;oleaut32.lib;advapi32.lib;Kinect10.lib;glew32.lib;vrpn.lib;TinyXML-2.lib;vld.lib</AdditionalDependencies>
+    </Link>
+    <CustomBuildStep>
+      <Command>copy "$(GLEW_BIN)\glew32.dll" "$(OutDir)\"
+copy "$(WIIUSE_BIN)\wiiuse.dll" "$(OutDir)\"
+copy "$(ProjectDir)README" "$(OutDir)\"</Command>
+      <Outputs>glew32.dll;wiiuse.dll;README</Outputs>
+      <Inputs>
+      </Inputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;__WXMSW__;_CRT_SECURE_NO_WARNINGS;WIN32;__WINDOWS__;BOOST_DATE_TIME_NO_LIB;NOMINMAX;_DEBUG;__WXDEBUG__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(WXWIDGETS_INCLUDES);$(KINECT_INCLUDES);$(BOOST_INCLUDES);$(VRPN_INCLUDES);$(GLEW_INCLUDES);$(TINYXML2_INCLUDES);$(VLD_INCLUDES);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(WXWIDGETS_LIBS);$(KINECT_LIBS);$(GLEW_LIBS);$(TINYXML2_LIBS)\Debug;$(VRPN_LIBS)\Debug;$(VLD_LIBS);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>wxbase28ud.lib;wxbase28ud_net.lib;wxbase28ud_xml.lib;wxexpatd.lib;wxjpegd.lib;wxmsw28ud_adv.lib;wxmsw28ud_aui.lib;wxmsw28ud_core.lib;wxmsw28ud_gl.lib;wxmsw28ud_html.lib;wxmsw28ud_media.lib;wxmsw28ud_qa.lib;wxmsw28ud_richtext.lib;wxmsw28ud_xrc.lib;wxpngd.lib;wxregexud.lib;wxtiffd.lib;wxzlibd.lib;opengl32.lib;winmm.lib;comctl32.lib;rpcrt4.lib;shell32.lib;gdi32.lib;kernel32.lib;user32.lib;comdlg32.lib;ole32.lib;oleaut32.lib;advapi32.lib;Kinect10.lib;glew32.lib;vrpn.lib;TinyXML-2.lib;vld.lib</AdditionalDependencies>
+    </Link>
+    <CustomBuildStep>
+      <Command>copy "$(GLEW_BIN)\glew32.dll" "$(OutDir)\"
+copy "$(WIIUSE_BIN)\wiiuse.dll" "$(OutDir)\"
+copy "$(ProjectDir)README" "$(OutDir)\"</Command>
+      <Outputs>glew32.dll;wiiuse.dll;README</Outputs>
+      <Inputs>
+      </Inputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_WiiMote_support|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;__WXMSW__;_CRT_SECURE_NO_WARNINGS;WIN32;__WINDOWS__;_WIIMOTE_SUPPORT_;BOOST_DATE_TIME_NO_LIB;NOMINMAX;_DEBUG;__WXDEBUG__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(WXWIDGETS_INCLUDES);$(KINECT_INCLUDES);$(BOOST_INCLUDES);$(VRPN_INCLUDES);$(GLEW_INCLUDES);$(TINYXML2_INCLUDES);$(VLD_INCLUDES);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(WXWIDGETS_LIBS);$(KINECT_LIBS);$(GLEW_LIBS);$(TINYXML2_LIBS)\Debug;$(VRPN_LIBS)\Debug;$(VLD_LIBS);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>wxbase28ud.lib;wxbase28ud_net.lib;wxbase28ud_xml.lib;wxexpatd.lib;wxjpegd.lib;wxmsw28ud_adv.lib;wxmsw28ud_aui.lib;wxmsw28ud_core.lib;wxmsw28ud_gl.lib;wxmsw28ud_html.lib;wxmsw28ud_media.lib;wxmsw28ud_qa.lib;wxmsw28ud_richtext.lib;wxmsw28ud_xrc.lib;wxpngd.lib;wxregexud.lib;wxtiffd.lib;wxzlibd.lib;opengl32.lib;winmm.lib;comctl32.lib;rpcrt4.lib;shell32.lib;gdi32.lib;kernel32.lib;user32.lib;comdlg32.lib;ole32.lib;oleaut32.lib;advapi32.lib;Kinect10.lib;glew32.lib;vrpn.lib;TinyXML-2.lib;vld.lib</AdditionalDependencies>
+    </Link>
+    <CustomBuildStep>
+      <Command>copy "$(GLEW_BIN)\glew32.dll" "$(OutDir)\"
+copy "$(WIIUSE_BIN)\wiiuse.dll" "$(OutDir)\"
+copy "$(ProjectDir)README" "$(OutDir)\"</Command>
+      <Outputs>glew32.dll;wiiuse.dll;README</Outputs>
+      <Inputs>
+      </Inputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_WINDOWS;__WXMSW__;_CRT_SECURE_NO_WARNINGS;WIN32;__WINDOWS__;BOOST_DATE_TIME_NO_LIB;NOMINMAX;NDEBUG;_NDEBUG_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(WXWIDGETS_INCLUDES);$(KINECT_INCLUDES);$(BOOST_INCLUDES);$(VRPN_INCLUDES);$(GLEW_INCLUDES);$(TINYXML2_INCLUDES);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(WXWIDGETS_LIBS);$(KINECT_LIBS);$(GLEW_LIBS);$(TINYXML2_LIBS)\Release;$(VRPN_LIBS)\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>wxbase28u.lib;wxbase28u_net.lib;wxbase28u_xml.lib;wxexpat.lib;wxjpeg.lib;wxmsw28u_adv.lib;wxmsw28u_aui.lib;wxmsw28u_core.lib;wxmsw28u_gl.lib;wxmsw28u_html.lib;wxmsw28u_media.lib;wxmsw28u_qa.lib;wxmsw28u_richtext.lib;wxmsw28u_xrc.lib;wxpng.lib;wxregexu.lib;wxtiff.lib;wxzlib.lib;opengl32.lib;winmm.lib;comctl32.lib;rpcrt4.lib;shell32.lib;gdi32.lib;kernel32.lib;user32.lib;comdlg32.lib;ole32.lib;oleaut32.lib;advapi32.lib;Kinect10.lib;glew32.lib;vrpn.lib;TinyXML-2.lib;</AdditionalDependencies>
+      <ProgramDatabaseFile>
+      </ProgramDatabaseFile>
+    </Link>
+    <CustomBuildStep>
+      <Command>mkdir "$(OutDir)\resources\"
+mkdir "$(OutDir)\resources\config\"
+mkdir "$(OutDir)\resources\log\"
+copy "$(GLEW_BIN)\glew32.dll" "$(OutDir)\"
+copy "$(WIIUSE_BIN)\wiiuse.dll" "$(OutDir)\"</Command>
+      <Outputs>glew32.dll;wiiuse.dll;README</Outputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_WINDOWS;__WXMSW__;_CRT_SECURE_NO_WARNINGS;WIN32;__WINDOWS__;BOOST_DATE_TIME_NO_LIB;NOMINMAX;NDEBUG;_NDEBUG_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(WXWIDGETS_INCLUDES);$(KINECT_INCLUDES);$(BOOST_INCLUDES);$(VRPN_INCLUDES);$(GLEW_INCLUDES);$(TINYXML2_INCLUDES);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(WXWIDGETS_LIBS);$(KINECT_LIBS);$(GLEW_LIBS);$(TINYXML2_LIBS)\Release;$(VRPN_LIBS)\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>wxbase28u.lib;wxbase28u_net.lib;wxbase28u_xml.lib;wxexpat.lib;wxjpeg.lib;wxmsw28u_adv.lib;wxmsw28u_aui.lib;wxmsw28u_core.lib;wxmsw28u_gl.lib;wxmsw28u_html.lib;wxmsw28u_media.lib;wxmsw28u_qa.lib;wxmsw28u_richtext.lib;wxmsw28u_xrc.lib;wxpng.lib;wxregexu.lib;wxtiff.lib;wxzlib.lib;opengl32.lib;winmm.lib;comctl32.lib;rpcrt4.lib;shell32.lib;gdi32.lib;kernel32.lib;user32.lib;comdlg32.lib;ole32.lib;oleaut32.lib;advapi32.lib;Kinect10.lib;glew32.lib;vrpn.lib;TinyXML-2.lib;</AdditionalDependencies>
+      <ProgramDatabaseFile>
+      </ProgramDatabaseFile>
+    </Link>
+    <CustomBuildStep>
+      <Command>mkdir "$(OutDir)\resources\"
+mkdir "$(OutDir)\resources\config\"
+mkdir "$(OutDir)\resources\log\"
+copy "$(GLEW_BIN)\glew32.dll" "$(OutDir)\"
+copy "$(WIIUSE_BIN)\wiiuse.dll" "$(OutDir)\"</Command>
+      <Outputs>glew32.dll;wiiuse.dll;README</Outputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_WINDOWS;__WXMSW__;_CRT_SECURE_NO_WARNINGS;WIN32;__WINDOWS__;BOOST_DATE_TIME_NO_LIB;NOMINMAX;NDEBUG;_NDEBUG_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(WXWIDGETS_INCLUDES);$(KINECT_INCLUDES);$(BOOST_INCLUDES);$(VRPN_INCLUDES);$(GLEW_INCLUDES);$(TINYXML2_INCLUDES);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(WXWIDGETS_LIBS);$(KINECT_LIBS);$(GLEW_LIBS);$(TINYXML2_LIBS)\Release;$(VRPN_LIBS)\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>wxbase28u.lib;wxbase28u_net.lib;wxbase28u_xml.lib;wxexpat.lib;wxjpeg.lib;wxmsw28u_adv.lib;wxmsw28u_aui.lib;wxmsw28u_core.lib;wxmsw28u_gl.lib;wxmsw28u_html.lib;wxmsw28u_media.lib;wxmsw28u_qa.lib;wxmsw28u_richtext.lib;wxmsw28u_xrc.lib;wxpng.lib;wxregexu.lib;wxtiff.lib;wxzlib.lib;opengl32.lib;winmm.lib;comctl32.lib;rpcrt4.lib;shell32.lib;gdi32.lib;kernel32.lib;user32.lib;comdlg32.lib;ole32.lib;oleaut32.lib;advapi32.lib;Kinect10.lib;glew32.lib;vrpn.lib;TinyXML-2.lib;</AdditionalDependencies>
+      <ProgramDatabaseFile>
+      </ProgramDatabaseFile>
+    </Link>
+    <CustomBuildStep>
+      <Command>mkdir "$(OutDir)\resources\"
+mkdir "$(OutDir)\resources\config\"
+mkdir "$(OutDir)\resources\log\"
+copy "$(GLEW_BIN)\glew32.dll" "$(OutDir)\"
+copy "$(WIIUSE_BIN)\wiiuse.dll" "$(OutDir)\"</Command>
+      <Outputs>glew32.dll;wiiuse.dll;README</Outputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_WINDOWS;__WXMSW__;_CRT_SECURE_NO_WARNINGS;WIN32;__WINDOWS__;BOOST_DATE_TIME_NO_LIB;NOMINMAX;NDEBUG;_NDEBUG_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(WXWIDGETS_INCLUDES);$(KINECT_INCLUDES);$(BOOST_INCLUDES);$(VRPN_INCLUDES);$(GLEW_INCLUDES);$(TINYXML2_INCLUDES);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(WXWIDGETS_LIBS);$(KINECT_LIBS);$(GLEW_LIBS);$(TINYXML2_LIBS)\Release;$(VRPN_LIBS)\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>wxbase28u.lib;wxbase28u_net.lib;wxbase28u_xml.lib;wxexpat.lib;wxjpeg.lib;wxmsw28u_adv.lib;wxmsw28u_aui.lib;wxmsw28u_core.lib;wxmsw28u_gl.lib;wxmsw28u_html.lib;wxmsw28u_media.lib;wxmsw28u_qa.lib;wxmsw28u_richtext.lib;wxmsw28u_xrc.lib;wxpng.lib;wxregexu.lib;wxtiff.lib;wxzlib.lib;opengl32.lib;winmm.lib;comctl32.lib;rpcrt4.lib;shell32.lib;gdi32.lib;kernel32.lib;user32.lib;comdlg32.lib;ole32.lib;oleaut32.lib;advapi32.lib;Kinect10.lib;glew32.lib;vrpn.lib;TinyXML-2.lib;</AdditionalDependencies>
+      <ProgramDatabaseFile>
+      </ProgramDatabaseFile>
+    </Link>
+    <CustomBuildStep>
+      <Command>mkdir "$(OutDir)\resources\"
+mkdir "$(OutDir)\resources\config\"
+mkdir "$(OutDir)\resources\log\"
+copy "$(GLEW_BIN)\glew32.dll" "$(OutDir)\"
+copy "$(WIIUSE_BIN)\wiiuse.dll" "$(OutDir)\"</Command>
+      <Outputs>glew32.dll;wiiuse.dll;README</Outputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>Full</Optimization>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|Win32'">
+    <ClCompile>
+      <Optimization>Full</Optimization>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>Full</Optimization>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|x64'">
+    <ClCompile>
+      <Optimization>Full</Optimization>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>Full</Optimization>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|Win32'">
+    <ClCompile>
+      <Optimization>Full</Optimization>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|Win32'">
+    <ClCompile>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|x64'">
+    <ClCompile>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|Win32'">
+    <ClCompile>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|Win32'">
+    <ClCompile>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|x64'">
+    <ClCompile>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|Win32'">
+    <ClCompile>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|Win32'">
+    <ClCompile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|x64'">
+    <ClCompile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|Win32'">
+    <ClCompile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>_WINDOWS;__WXMSW__;_CRT_SECURE_NO_WARNINGS;WIN32;__WINDOWS__;NDEBUG;_NDEBUG_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(WXWIDGETS_DIR)\include\msvc;$(WXWIDGETS_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(WXWIDGETS_DIR)\lib\vc_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>wxbase28u.lib;wxbase28u_net.lib;wxbase28u_xml.lib;wxexpat.lib;wxjpeg.lib;wxmsw28u_adv.lib;wxmsw28u_aui.lib;wxmsw28u_core.lib;wxmsw28u_gl.lib;wxmsw28u_html.lib;wxmsw28u_media.lib;wxmsw28u_qa.lib;wxmsw28u_richtext.lib;wxmsw28u_xrc.lib;wxpng.lib;wxregexu.lib;wxtiff.lib;wxzlib.lib;opengl32.lib;winmm.lib;comctl32.lib;rpcrt4.lib;shell32.lib;gdi32.lib;kernel32.lib;user32.lib;comdlg32.lib;ole32.lib;oleaut32.lib;advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ProgramDatabaseFile>
+      </ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <CustomBuildStep>
+      <Command>
+
+mkdir $(SolutionDir)Build\$(Configuration)\resources\
+copy $(ProjectDir)resources $(SolutionDir)Build\$(Configuration)\resources\</Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|Win32'">
+    <ClCompile>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>_WINDOWS;__WXMSW__;_CRT_SECURE_NO_WARNINGS;WIN32;__WINDOWS__;NDEBUG;_NDEBUG_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(WXWIDGETS_DIR)\include\msvc;$(WXWIDGETS_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(WXWIDGETS_DIR)\lib\vc_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>wxbase28u.lib;wxbase28u_net.lib;wxbase28u_xml.lib;wxexpat.lib;wxjpeg.lib;wxmsw28u_adv.lib;wxmsw28u_aui.lib;wxmsw28u_core.lib;wxmsw28u_gl.lib;wxmsw28u_html.lib;wxmsw28u_media.lib;wxmsw28u_qa.lib;wxmsw28u_richtext.lib;wxmsw28u_xrc.lib;wxpng.lib;wxregexu.lib;wxtiff.lib;wxzlib.lib;opengl32.lib;winmm.lib;comctl32.lib;rpcrt4.lib;shell32.lib;gdi32.lib;kernel32.lib;user32.lib;comdlg32.lib;ole32.lib;oleaut32.lib;advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ProgramDatabaseFile>
+      </ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <CustomBuildStep>
+      <Command>
+
+mkdir $(SolutionDir)Build\$(Configuration)\resources\
+copy $(ProjectDir)resources $(SolutionDir)Build\$(Configuration)\resources\</Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>_WINDOWS;__WXMSW__;_CRT_SECURE_NO_WARNINGS;WIN32;__WINDOWS__;NDEBUG;_NDEBUG_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(WXWIDGETS_DIR)\include\msvc;$(WXWIDGETS_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(WXWIDGETS_DIR)\lib\vc_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>wxbase28u.lib;wxbase28u_net.lib;wxbase28u_xml.lib;wxexpat.lib;wxjpeg.lib;wxmsw28u_adv.lib;wxmsw28u_aui.lib;wxmsw28u_core.lib;wxmsw28u_gl.lib;wxmsw28u_html.lib;wxmsw28u_media.lib;wxmsw28u_qa.lib;wxmsw28u_richtext.lib;wxmsw28u_xrc.lib;wxpng.lib;wxregexu.lib;wxtiff.lib;wxzlib.lib;opengl32.lib;winmm.lib;comctl32.lib;rpcrt4.lib;shell32.lib;gdi32.lib;kernel32.lib;user32.lib;comdlg32.lib;ole32.lib;oleaut32.lib;advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ProgramDatabaseFile>
+      </ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <CustomBuildStep>
+      <Command>copy "$(GLEW_BIN)\glew32.dll" "$(OutDir)\"
+copy "$(WIIUSE_BIN)\wiiuse.dll" "$(OutDir)\"
+copy "$(ProjectDir)README" "$(OutDir)\"</Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|x64'">
+    <ClCompile>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>_WINDOWS;__WXMSW__;_CRT_SECURE_NO_WARNINGS;WIN32;__WINDOWS__;_WIIMOTE_SUPPORT_;NDEBUG;_NDEBUG_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(WXWIDGETS_DIR)\include\msvc;$(WXWIDGETS_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(WXWIDGETS_DIR)\lib\vc_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>wxbase28u.lib;wxbase28u_net.lib;wxbase28u_xml.lib;wxexpat.lib;wxjpeg.lib;wxmsw28u_adv.lib;wxmsw28u_aui.lib;wxmsw28u_core.lib;wxmsw28u_gl.lib;wxmsw28u_html.lib;wxmsw28u_media.lib;wxmsw28u_qa.lib;wxmsw28u_richtext.lib;wxmsw28u_xrc.lib;wxpng.lib;wxregexu.lib;wxtiff.lib;wxzlib.lib;opengl32.lib;winmm.lib;comctl32.lib;rpcrt4.lib;shell32.lib;gdi32.lib;kernel32.lib;user32.lib;comdlg32.lib;ole32.lib;oleaut32.lib;advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ProgramDatabaseFile>
+      </ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <CustomBuildStep>
+      <Command>copy "$(GLEW_BIN)\glew32.dll" "$(OutDir)\"
+copy "$(WIIUSE_BIN)\wiiuse.dll" "$(OutDir)\"
+copy "$(ProjectDir)README" "$(OutDir)\"</Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>_WINDOWS;__WXMSW__;_CRT_SECURE_NO_WARNINGS;WIN32;__WINDOWS__;NDEBUG;_NDEBUG_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(WXWIDGETS_DIR)\include\msvc;$(WXWIDGETS_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(WXWIDGETS_DIR)\lib\vc_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>wxbase28u.lib;wxbase28u_net.lib;wxbase28u_xml.lib;wxexpat.lib;wxjpeg.lib;wxmsw28u_adv.lib;wxmsw28u_aui.lib;wxmsw28u_core.lib;wxmsw28u_gl.lib;wxmsw28u_html.lib;wxmsw28u_media.lib;wxmsw28u_qa.lib;wxmsw28u_richtext.lib;wxmsw28u_xrc.lib;wxpng.lib;wxregexu.lib;wxtiff.lib;wxzlib.lib;opengl32.lib;winmm.lib;comctl32.lib;rpcrt4.lib;shell32.lib;gdi32.lib;kernel32.lib;user32.lib;comdlg32.lib;ole32.lib;oleaut32.lib;advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ProgramDatabaseFile>
+      </ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <CustomBuildStep>
+      <Command>copy "$(GLEW_BIN)\glew32.dll" "$(OutDir)\"
+copy "$(WIIUSE_BIN)\wiiuse.dll" "$(OutDir)\"
+copy "$(ProjectDir)README" "$(OutDir)\"</Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_WiiMote_support|Win32'">
+    <ClCompile>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>_WINDOWS;__WXMSW__;_CRT_SECURE_NO_WARNINGS;WIN32;__WINDOWS__;_WIIMOTE_SUPPORT_;NDEBUG;_NDEBUG_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(WXWIDGETS_DIR)\include\msvc;$(WXWIDGETS_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(WXWIDGETS_DIR)\lib\vc_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>wxbase28u.lib;wxbase28u_net.lib;wxbase28u_xml.lib;wxexpat.lib;wxjpeg.lib;wxmsw28u_adv.lib;wxmsw28u_aui.lib;wxmsw28u_core.lib;wxmsw28u_gl.lib;wxmsw28u_html.lib;wxmsw28u_media.lib;wxmsw28u_qa.lib;wxmsw28u_richtext.lib;wxmsw28u_xrc.lib;wxpng.lib;wxregexu.lib;wxtiff.lib;wxzlib.lib;opengl32.lib;winmm.lib;comctl32.lib;rpcrt4.lib;shell32.lib;gdi32.lib;kernel32.lib;user32.lib;comdlg32.lib;ole32.lib;oleaut32.lib;advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ProgramDatabaseFile>
+      </ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <CustomBuildStep>
+      <Command>copy "$(GLEW_BIN)\glew32.dll" "$(OutDir)\"
+copy "$(WIIUSE_BIN)\wiiuse.dll" "$(OutDir)\"
+copy "$(ProjectDir)README" "$(OutDir)\"</Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Files\Filesystem.h" />
+    <ClInclude Include="include\Geom\Color.h" />
+    <ClInclude Include="include\Geom\Matrix3x3.h" />
+    <ClInclude Include="include\Geom\Matrix4x4.h" />
+    <ClInclude Include="include\Geom\Point.h" />
+    <ClInclude Include="include\Geom\Quaternion.h" />
+    <ClInclude Include="include\Geom\Vector.h" />
+    <ClInclude Include="include\Globals\Config.h" />
+    <ClInclude Include="include\Globals\Definitions.h" />
+    <ClInclude Include="include\Globals\Include.h" />
+    <ClInclude Include="include\Globals\Objects.h" />
+    <ClInclude Include="include\Globals\Types.h" />
+    <ClInclude Include="include\Globals\Vars.h" />
+    <ClInclude Include="include\GUI\App.h" />
+    <ClInclude Include="include\GUI\GLCanvas.h" />
+    <ClInclude Include="include\GUI\KinectCanvas.h" />
+    <ClInclude Include="include\GUI\MainFrame.h" />
+    <ClInclude Include="include\GUI\MainFrameLogic.h" />
+    <ClInclude Include="include\GUI\TextFileDialog.h" />
+    <ClInclude Include="include\GUI\MasterFrame.h" />
+    <ClInclude Include="include\GUI\MasterFrameLogic.h" />
+    <ClInclude Include="include\GUI\RenderFrame.h" />
+    <ClInclude Include="include\Interprocess\SharedMemoryManager.h" />
+    <ClInclude Include="include\Kinect\KinectDevice.h" />
+    <ClInclude Include="include\Kinect\KinectManager.h" />
+    <ClInclude Include="include\Kinect\KinectSkeleton.h" />
+    <ClInclude Include="include\Render\RenderSystem.h" />
+    <ClInclude Include="include\Render\RenderSystemInterprocess.h" />
+    <ClInclude Include="include\Render\RenderSystemLocal.h" />
+    <ClInclude Include="include\Render\RenderSystemRemote.h" />
+    <ClInclude Include="include\Render\RenderThread.h" />
+    <ClInclude Include="include\Render\RenderTimer.h" />
+    <ClInclude Include="include\Tools\Log.h" />
+    <ClInclude Include="include\Tools\Timer.h" />
+    <ClInclude Include="include\VRPN\VRPNClient.h" />
+    <ClInclude Include="include\VRPN\VRPNServer.h" />
+    <ClInclude Include="include\VRPN\VRPNSkeletonTracker.h" />
+    <ClInclude Include="include\VRPN\VRPNSkeletonTrackerRemote.h" />
+    <ClInclude Include="include\VRPN\VRPNWiimote.h" />
+    <ClInclude Include="include\VRPN\VRPNWiimoteRemote.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\Files\Filesystem.cpp" />
+    <ClCompile Include="source\Geom\Color.cpp" />
+    <ClCompile Include="source\Geom\Matrix3x3.cpp" />
+    <ClCompile Include="source\Geom\Matrix4x4.cpp" />
+    <ClCompile Include="source\Geom\Point.cpp" />
+    <ClCompile Include="source\Geom\Quaternion.cpp" />
+    <ClCompile Include="source\Geom\Vector.cpp" />
+    <ClCompile Include="source\Globals\Config.cpp" />
+    <ClCompile Include="source\Globals\Types.cpp" />
+    <ClCompile Include="source\Globals\Vars.cpp" />
+    <ClCompile Include="source\GUI\App.cpp" />
+    <ClCompile Include="source\GUI\GLCanvas.cpp" />
+    <ClCompile Include="source\GUI\KinectCanvas.cpp" />
+    <ClCompile Include="source\GUI\MainFrame.cpp" />
+    <ClCompile Include="source\GUI\MainFrameLogic.cpp" />
+    <ClCompile Include="source\GUI\TextFileDialog.cpp" />
+    <ClCompile Include="source\GUI\MasterFrame.cpp" />
+    <ClCompile Include="source\GUI\MasterFrameLogic.cpp" />
+    <ClCompile Include="source\GUI\RenderFrame.cpp" />
+    <ClCompile Include="source\Interprocess\SharedMemoryManager.cpp" />
+    <ClCompile Include="source\Kinect\KinectDevice.cpp" />
+    <ClCompile Include="source\Kinect\KinectManager.cpp" />
+    <ClCompile Include="source\Kinect\KinectSkeleton.cpp" />
+    <ClCompile Include="source\Render\RenderSystem.cpp" />
+    <ClCompile Include="source\Render\RenderSystemInterprocess.cpp" />
+    <ClCompile Include="source\Render\RenderSystemLocal.cpp" />
+    <ClCompile Include="source\Render\RenderSystemRemote.cpp" />
+    <ClCompile Include="source\Render\RenderThread.cpp" />
+    <ClCompile Include="source\Render\RenderTimer.cpp" />
+    <ClCompile Include="source\Tools\Log.cpp" />
+    <ClCompile Include="source\Tools\Timer.cpp" />
+    <ClCompile Include="source\VRPN\VRPNClient.cpp" />
+    <ClCompile Include="source\VRPN\VRPNServer.cpp" />
+    <ClCompile Include="source\VRPN\VRPNSkeletonTracker.cpp" />
+    <ClCompile Include="source\VRPN\VRPNSkeletonTrackerRemote.cpp" />
+    <ClCompile Include="source\VRPN\VRPNWiimote.cpp" />
+    <ClCompile Include="source\VRPN\VRPNWiimoteRemote.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resources\resources.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
